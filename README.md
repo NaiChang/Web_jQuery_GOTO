@@ -11,7 +11,6 @@ https://naichang.github.io/Web_jQuery_GOTO/
 ```
 
 置於</body>上方
-
  <!-- jQuery CDN -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
