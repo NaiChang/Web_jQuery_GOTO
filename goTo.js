@@ -15,13 +15,25 @@ $("*").each(function (index, element) {
         // 避免出現 undefine (未定義 -不存在的資料)
         // 可在網頁的"檢查-console"檢查
         if (target) {
-            console.log("目標 :" + target);
-            console.log("時間 :" + duration);
-            console.log("位移 :" + offset);
+            // console.log("目標 :" + target);
+            // console.log("時間 :" + duration);
+            // console.log("位移 :" + offset);
 
             // 上方位置 = 目標區塊.位移().上方的位置
-            $(target).offset().top;
-            console.log("要前往元素的上方位置:" + top)
+            var top = $(target).offset().top;
+            // console.log("要前往元素的上方位置:" + top);
+
+            // 網頁元素.停止().動畫({指定元素 - 位移}，持續時間)
+            // parseInt() 將文字轉為數字
+            $("html").stop().animate ({
+                scrollTop: top - offset
+            }, parseInt(duration));
         }
     });
+});
+
+// 避免動畫與使用者滾輪動作衝突(以使用者動作為主)
+// html 在滾動滾輪時 停止 html 所有效果
+$("html").on("mousewheel", function () {
+    $("html").stop();
 });
